@@ -23,12 +23,13 @@ function setup() {
             const size = cellSize 
             const xPosition = startSpacing + (row * (cellSize + spacing))
             const yPosition = startSpacing + (column * (cellSize + spacing))
+            // push and pop isolate the translation and rotation to each square rather than whole grid
+            push()
             translate(xPosition, yPosition)
-            rotate(3)
+            rotate(random(360))
             square(0, 0, size)
+            pop()
         }
     }
 }
 
-// problem - i think it is rotating each row or column rather than each individual square
-// for loop is the problem?
