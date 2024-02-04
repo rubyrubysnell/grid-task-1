@@ -14,20 +14,21 @@ function setup() {
     const spacing = 25
     const startSpacing = (canvasSize - ((cellSize + spacing) * cellNumber)) / 2
 
-    let angle = 0 
-
     for (let row = 0; row < cellNumber; row++) {
         for (let column = 0; column < cellNumber; column++) {
             fill(43, 43, 43)
             noStroke()
-            const size = cellSize 
+            // positioning the grid in the middle of the canvas
             const xPosition = startSpacing + (row * (cellSize + spacing))
             const yPosition = startSpacing + (column * (cellSize + spacing))
             // push and pop isolate the translation and rotation to each square rather than whole grid
             push()
+            // shifts the origin to the centre of the square
             translate(xPosition, yPosition)
-            rotate(random(360))
-            square(0, 0, size)
+            // rotate to a random angle between 0 and 45
+            rotate(random(45))
+            // draw square
+            square(0, 0, cellSize)
             pop()
         }
     }
